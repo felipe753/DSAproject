@@ -4,7 +4,7 @@
 # include <stdio.h>
 class BST_Tree
 {
-	vector <i;
+	vector <int> v;
 	
 public:
 	BST_Tree();
