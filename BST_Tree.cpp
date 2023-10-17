@@ -196,31 +196,31 @@ void BST_Tree::transfer(int sender_accountno,int reciever_accountno,int sender_a
 	//  for reciever 
 
 
-	vector <int> data;
-	ifstream read;
-	read.open("transaction.txt", ios::app);
-	int line = 0;
-	while (!read.eof())
+	vector <int> data2;
+	ifstream read2;
+	read2.open("transaction.txt", ios::app);
+	int line2 = 0;
+	while (!read2.eof())
 	{
-		read >> line;
-		if (line == reciever_accountno)
+		read2 >> line2;
+		if (line2 == reciever_accountno)
 		{
-			data.push_back(line);
-			line = sender_amount;
-			data.push_back(line);
+			data2.push_back(line2);
+			line2 = sender_amount;
+			data2.push_back(line2);
 			continue;
 		}
-		data.push_back(line);
+		data2.push_back(line2);
 	}
-	read.close();
+	read2.close();
 
-	ofstream write;
-	write.open("temp.txt", ios::app);
-	for (int i = 0; i < data.size(); i++)
+	ofstream write2;
+	write2.open("temp.txt", ios::app);
+	for (int i = 0; i < data2.size(); i++)
 	{
-		write << data[i] << endl;
+		write2 << data2[i] << endl;
 	}
-	write.close();
+	write2.close();
 	remove("transaction.txt");
 	rename("temp.txt", "transaction.txt");
 
